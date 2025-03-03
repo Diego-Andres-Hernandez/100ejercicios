@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body{
+    background-color: rgb(197, 246, 246);
+    height: 100%;
+    width: 100%;
+    /* display:flex; */
+    /* flex-wrap: wrap; */
+    /* flex-direction: row-reverse; */
+     /*invierte el eje para que inicie de iz a  derecha */
+  }
+  section{
+  height: 50vh;
+  width: 100%;
+  /* text-align: center; */
+   display:flex; 
+   flex-wrap: wrap;
+  
+  /* overflow permite ocultar el contenido que sobrepasa el
+   tamaño del conteneror , barra lateral */
+  overflow: auto; 
+  display:flex; 
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  }
+  
+  #anagram{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  }
+  #numPrimo{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    }
+  
+  
+  label{
+    font-size: 30px;
+    margin: 5px;
+  }
+  
+  input{
+    width: 300px;
+    height: 50px;
+    margin: 5px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    text-align: center;
+  }
+  .uno {
+    background: rgb(210, 229, 177);
+    /* display:flex;
+    flex:1; */
+    text-align: right; 
+  } 
+  .dos{
+    background-color: rgb(163, 239, 239);
+    display: flex;
+    text-align: center;  
+  }
+  div{
+    height: 90%;
+    width: 60%; 
+    margin: 10px;
+  
+    background-color: rgb(223, 192, 192);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  button{
+  height: 100px;
+  width: 100px;
+  border-radius: 10%;
+  
+  
+  }
+  
+  #poligono :first-child{
+    background-color: rgb(8, 45, 45);
+  }
+  
+  /* #ladoC {
+  
+    display:none;
+  } */
+
+  #viewFuntion{
+    font-style: italic;
+    font-size: 30px;
+    justify-content: center;
+  }
+  #intoDiv{
+    font-style: italic;
+    font-size: 100px;
+  }
+  
