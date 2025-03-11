@@ -3,13 +3,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const boton1=document.getElementById("boton1");
 if(boton1){boton1.addEventListener("click",fFaboccini);}
+
 const boton2=document.getElementById("boton2");
 if(boton2){boton2.addEventListener("click",aspertRatio);}
+
 const boton3=document.getElementById("boton3");
 if(boton3){boton3.addEventListener("click",invertirCadena);}
+
 const boton4=document.getElementById("boton4");
 if(boton4){boton4.addEventListener("click",contarPalabras);}
 
+const boton5=document.getElementById("boton5");
+if(boton5){boton5.addEventListener("click",convierteBinario);}
 });
 
 /*     #3 LA SUCESIÓN DE FIBONACCI
@@ -103,36 +108,69 @@ function aspertRatio(){
  *   lo resuelvan automáticamente.
  */
 
-       function contarPalabras(){
-        // alert("aqui deberia poner la logica de contar ");
-        var countWords=document.getElementById('countWords').value
-        // alert("countWords= " + countWords)
+       function contarPalabras(){        
+        var countWords=document.getElementById('countWords').value        
         if (countWords==""){
           alert("No hay texto para contar palabras");
           return;
-        }
-
+        }else{
       // del texto original dividirlo por palabras 
-      // ej:  el yo 
-      let contarEspacio=0;
-      let palabra="";
-      let arrayPalabra=[];
-      for(let i=0;i<=countWords.length -1;i++){
-        
-        if (countWords[i]===" "){
-          arrayPalabra.push(palabra)
-          palabra="";
-          
-          contarEspacio++;
+      // ej:  hola hola 
+      //1. Recorrer el arreglo con un for ✅
+       let arrayWord=[];
+       arrayWord=countWords.toLowerCase();
+       let matriz=[];
+       alert("Array  Word Valor = "+ arrayWord)    
+      let palabraActual="";    
+      
+      for(let i=0;i<arrayWord.length;i++){
+       // conjunto set, definimos el conjunto de caracteres a omitir en conjunto 
+       const simbolos=new Set([" ", ".", ",", "!", "?"]) 
+        // if(arrayWord[i]!==" " && arrayWord[i]!== "."){
+         if (!simbolos.has(arrayWord[i])) {
 
-          }else{
-            palabra+=countWords[i];
-           
+          palabraActual+=arrayWord[i];
           
-          }         
+          
+        }else{
+          if(palabraActual.length>0 ){
+             matriz.push(palabraActual);
+             palabraActual="";
+          }
+        }
          
+    }
+
+    if(palabraActual.length>0){ // este meteria la ultima palabra , si es que no es vacia luego del espacio 
+
+      matriz.push(palabraActual);
+     }
+    
+    alert("el recuento total de palabras es  = " + matriz.length )
+    let repetidas =0;
+     for (let i=0; i<matriz.length;i++){
+
+      if(matriz[i]==matriz[i+1]){
+        repetidas++;        
       }
-      if (palabra.length>0){arrayPalabra.push(palabra)}
-      alert("la cantidad de Palabras= "+  arrayPalabra.length + " el numero de espacios es  "+ contarEspacio )
+
+    }
+    alert("Palabras se repite  "+ repetidas + " veces" )
+
+      }
+   
+      
        }
 
+
+       /*
+ * Crea un programa se encargue de transformar un número
+ * decimal a binario sin utilizar funciones propias del lenguaje que lo hagan directamente.
+ */
+
+       
+       function convierteBinario(){
+
+        alert("Convertir a Binario");
+
+       }
