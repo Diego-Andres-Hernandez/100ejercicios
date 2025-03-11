@@ -24,9 +24,6 @@ if(boton5){boton5.addEventListener("click",convierteBinario);}
  *   la que el siguiente siempre es la suma de los dos anteriores.
  *   0, 1, 1, 2, 3, 5, 8, 13...
  */
-
-
-
 function fFaboccini(){
     var sectionFibonacci=document.getElementById('fibonacci').value;
     alert("La serie Fibonacci se compone por una sucesión de números en la que el siguiente siempre es la suma de los dos anteriores  0, 1, 1, 2, 3, 5, 8, 13..");
@@ -37,8 +34,6 @@ function fFaboccini(){
     printSucesion.innerHTML = fibonacci(sectionFibonacci);
     
 }
-
-
 
 function fibonacci() {
   let a = 0;
@@ -59,7 +54,6 @@ function fibonacci() {
 return arrayFibonacci.join(" , ");
 }
 
-
 /*          #6 ASPECT RATIO DE UNA IMAGEN
  * Crea un programa que se encargue de calcular el aspect ratio de una
  * imagen a partir de una url.
@@ -74,8 +68,6 @@ function aspertRatio(){
     // let url=document.getElementById('url').value;
     alert("aqui deberia   poner la logica del Aspect Ratio de una imagen a partir de una url");
 }
-
-
 
 /*
        #7 INVERTIR UNA CADENA DE TEXTO 
@@ -171,6 +163,6 @@ function aspertRatio(){
        
        function convierteBinario(){
 
-        alert("Convertir a Binario");
-
+       var numero=document.getElementById('numero').value
+        alert("numero = "  + numero)
        }
