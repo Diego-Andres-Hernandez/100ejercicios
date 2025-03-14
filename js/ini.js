@@ -15,6 +15,23 @@ if(boton4){boton4.addEventListener("click",contarPalabras);}
 
 const boton5=document.getElementById("boton5");
 if(boton5){boton5.addEventListener("click",convierteBinario);}
+
+const boton6=document.getElementById("boton6");
+if(boton6){boton6.addEventListener("click",convierteMose);}
+
+const alfabetoMorse=new Map([
+  ["a", ".-"], ["b", "-..."], ["c", "-.-."], ["ch", "----"], ["d", "-.."], ["e", "."], ["f", "..-."], ["g", "--."], ["h", "...."], ["i", ".."], ["j", ".---"], ["k", "-.-"], ["l", ".-.."], ["m", "--"], ["n", "-."], ["ñ", "--.--"], ["o", "---"], ["p", ".--."], ["q", "--.-"], ["r", ".-."], ["s", "..."], ["t", "-"], ["u", "..-"], ["v", "...-"], ["w", ".--"], ["x", "-..-"], ["y", "-.--"], ["z", "--.."], ["0", "-----"], ["1", ".----"], ["2", "..---"], ["3", "...--"], ["4", "....-"], ["5", "....."], ["6", "-...."], ["7", "--..."], ["8", "---.."], ["9", "----."], [".", ".-.-.-"], [",", "--..--"], ["?", "..--.."], ["\"", ".-..-."]
+]);
+let variableCargaTexto=document.getElementById('intoDiv3');
+let morseString="";
+alfabetoMorse.forEach((value,key)=>{
+
+    morseString+=` \n \n  ${key} =  \n  ( ${value}\n)`;
+
+  });
+
+    variableCargaTexto.innerHTML=morseString;
+
 });
 
 /*     #3 LA SUCESIÓN DE FIBONACCI
@@ -164,5 +181,67 @@ function aspertRatio(){
        function convierteBinario(){
 
        var numero=document.getElementById('numero').value
-        alert("numero = "  + numero)
+        // alert("numero = "  + numero)
+        numero=parseFloat(numero)
+        if(!isNaN(numero)){
+          // alert("el numero en el IF es = " + numero);
+         
+          let cociente=numero;
+          let residuo=[];
+          let residuoNum;
+          while(cociente>0){
+          // alert("cociente1=" +cociente)
+          
+            // alert("entro al for")
+          residuoNum=cociente % 2;
+          cociente=Math.floor(cociente/2);      
+          residuo.push(residuoNum);
+
+          // alert("Numero es = " + cociente + " residuo es = " + residuo)
+          }
+          residuo=residuo.reverse();
+          // alert("El numero " + numero + " como Binario es  = " + residuo)
+          let printCadena=document.getElementById('intoDiv1');
+          printCadena.innerHTML = residuo;
+
+        }else{
+          alert("intente nuevamente, no se ingreso un numero");
+        }       
+       
        }
+
+       /*
+ * Crea un programa que sea capaz de transformar texto natural a código
+ * morse y viceversa.
+ * - Debe detectar automáticamente de qué tipo se trata y realizar
+ *   la conversión.
+ * - En morse se soporta raya "—", punto ".", un espacio " " entre letras
+ *   o símbolos y dos espacios entre palabras "  ".
+ * - El alfabeto morse soportado será el mostrado en
+ *   https://es.wikipedia.org/wiki/Código_morse.
+ */
+
+       // 1 defino el diccionario para todo el alfabeto morse 
+
+
+       
+
+       function convierteMose(){
+        
+  
+      
+        var claveMorse=document.getElementById('claveMorse').value;
+        if(claveMorse!=""){
+          
+       // aqui debo validar si todos los sibolos son . o - 
+            for(let i=0;i<claveMorse.length;i++){
+              if (claveMorse[i]!=="." || claveMorse[i]!=="-"){}
+
+
+            }
+
+
+       }
+      }
+
+
