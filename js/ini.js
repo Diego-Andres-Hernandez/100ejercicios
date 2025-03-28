@@ -18,19 +18,16 @@ if(boton5){boton5.addEventListener("click",convierteBinario);}
 
 const boton6=document.getElementById("boton6");
 if(boton6){boton6.addEventListener("click",convierteMose);}
+// let variableCargaTexto=document.getElementById('intoDiv3');
+// variableCargaTexto.innerHTML=morseString;
+const boton7=document.getElementById("boton7");
+if(boton7){boton7.addEventListener("click",validaParentesis);}
 
-const alfabetoMorse=new Map([
-  ["a", ".-"], ["b", "-..."], ["c", "-.-."], ["ch", "----"], ["d", "-.."], ["e", "."], ["f", "..-."], ["g", "--."], ["h", "...."], ["i", ".."], ["j", ".---"], ["k", "-.-"], ["l", ".-.."], ["m", "--"], ["n", "-."], ["ñ", "--.--"], ["o", "---"], ["p", ".--."], ["q", "--.-"], ["r", ".-."], ["s", "..."], ["t", "-"], ["u", "..-"], ["v", "...-"], ["w", ".--"], ["x", "-..-"], ["y", "-.--"], ["z", "--.."], ["0", "-----"], ["1", ".----"], ["2", "..---"], ["3", "...--"], ["4", "....-"], ["5", "....."], ["6", "-...."], ["7", "--..."], ["8", "---.."], ["9", "----."], [".", ".-.-.-"], [",", "--..--"], ["?", "..--.."], ["\"", ".-..-."]
-]);
-let variableCargaTexto=document.getElementById('intoDiv3');
-let morseString="";
-alfabetoMorse.forEach((value,key)=>{
+const boton8=document.getElementById("boton8");
+if(boton8){boton8.addEventListener("click", delCharacter);}
 
-    morseString+=` \n \n  ${key} =  \n  ( ${value}\n)`;
-
-  });
-
-    variableCargaTexto.innerHTML=morseString;
+const boton9=document.getElementById("boton9");
+if(boton9){boton9.addEventListener("click", palindromo);}
 
 });
 
@@ -108,6 +105,9 @@ function aspertRatio(){
         printCadena.innerHTML = invertirCadena;
         // alert("la cadena invertida es =  "+ invertirCadena);
        }
+
+
+       // # 8 contador de palabras
        /*
  * Crea un programa que cuente cuantas veces se repite cada palabra
  * y que muestre el recuento final de todas ellas.
@@ -171,7 +171,7 @@ function aspertRatio(){
       
        }
 
-
+       // #9 decimal a Binario
        /*
  * Crea un programa se encargue de transformar un número
  * decimal a binario sin utilizar funciones propias del lenguaje que lo hagan directamente.
@@ -215,33 +215,276 @@ function aspertRatio(){
  * morse y viceversa.
  * - Debe detectar automáticamente de qué tipo se trata y realizar
  *   la conversión.
- * - En morse se soporta raya "—", punto ".", un espacio " " entre letras
+ * - En morse se soporta raya "-", punto ".", un espacio " " entre letras
  *   o símbolos y dos espacios entre palabras "  ".
  * - El alfabeto morse soportado será el mostrado en
  *   https://es.wikipedia.org/wiki/Código_morse.
  */
-
+       //#10 convertir a Morse
        // 1 defino el diccionario para todo el alfabeto morse 
-
-
-       
-
-       function convierteMose(){
-        
-  
-      
-        var claveMorse=document.getElementById('claveMorse').value;
+    function convierteMose(){  
+       var claveMorse=document.getElementById('claveMorse').value;
+      //  claveMorse=claveMorse.toUpperCase;
         if(claveMorse!=""){
-          
-       // aqui debo validar si todos los sibolos son . o - 
-            for(let i=0;i<claveMorse.length;i++){
-              if (claveMorse[i]!=="." || claveMorse[i]!=="-"){}
+          // 1. valido si se ingreso minimo un caracter         
+          // aqui debo validar si todos los sibolos son "." o "-""
+          // claveMorse=claveMorse.toUpperCase;
+            let contador=0;
+            const simbolo=new Set([".","-"," "]);
+             for(let i=0;i<claveMorse.length;i++){
+              if (!simbolo.has(claveMorse[i])){
 
+                // alert("valido que es diferente de  espacio , punto o linea    = " + claveMorse[i]);
+              }else{
+                 contador++;
+                //  alert("validacion  que es igual a un punto , linea  y sumo contador = " + contador);
+              }  
+             }
+ 
+             const morse=new Map([            
+  
+                ["A",".-"],
+                ["B","-..."],
+                ["C","-.-."],
+                ["CH","----"],
+                ["D","-.."],
+                ["E","."],
+                ["F","..-."],
+                ["G","--."],
+                ["H","...."],
+                ["I",".."],
+                ["J",".---"],
+                ["K","-.-"],
+                ["L",".-.."],
+                ["M","--"],
+                ["N","-."],
+                ["Ñ","--.--"],
+                ["O","---"],
+                ["P",".--."],
+                ["Q","--.-"],
+                ["R",".-."],
+                ["S","..."],
+                ["T","-"],
+                ["U","..-"],
+                ["V","...-"],
+                ["W",".--"],
+                ["X","-..-"],
+                ["Y","-.--"],
+                ["Z","--.."],
+                ["0","-----"],
+                ["1",".----"],
+                ["2","..---"],
+                ["3","...--"],
+                ["4","....-"],
+                ["5","....."],
+                ["6","-...."],
+                ["7","--..."],
+                ["8","---.."],
+                ["9","----."],
+                [".",".-.-.-"],
+                [",","--..--"],
+                ["?","..--.."],
+                ['"',".-..-."],
+                ]);
 
+            const morseALetra=new Map([
+              [".-","A"],
+              ["-...","B"],
+              ["-.-.","C"],
+              ["----","CH"],
+              ["-..","D"],
+              [".","E"],
+              ["..-.","F"],
+              ["--.","G"],
+              ["....","H"],
+              ["..","I"],
+              [".---","J"],
+              ["-.-","K"],
+              [".-..","L"],
+              ["--","M"],
+              ["-.","N"],
+              ["--.--","Ñ"],
+              ["---","O"],
+              [".--.","P"],
+              ["--.-","Q"],
+              [".-.","R"],
+              ["...","S"],
+              ["-","T"],
+              ["..-","U"],
+              ["...-","V"],
+              [".--","W"],
+              ["-..-","X"],
+              ["-.--","Y"],
+              ["--..","Z"],
+              ["-----","0"],
+              [".----","1"],
+              ["..---","2"],
+              ["...--","3"],
+              ["....-","4"],
+              [".....","5"],
+              ["-....","6"],
+              ["--...","7"],
+              ["---..","8"],
+              ["----.","9"],
+              [".-.-.-","."],
+              ["--..--",","],
+              ["..--..","?"],
+              [".-..-.",'"'],
+              ]);
+              
+             let arrayConversion=[];
+             let caracter="";
+             let letra="";
+             if(contador==claveMorse.length){
+              // 2. ESTO ES MORSE POR TANTO CONVIERTO             
+             alert("valor que se debe convertir es  = " + claveMorse);
+             for(let i=0;i<claveMorse.length;i++){
+                  if(claveMorse[i]!= " "){
+                     letra+=claveMorse[i];
+                    //  alert("valor de arrayConversion= " + letra);
+                    }else{  
+                      arrayConversion.push(morseALetra.get(letra));
+                      alert("encontro 1 espacio hace push a  arrayLetra" ) 
+                      letra="";              
+                    } 
+
+                    // caracter=letra;              
+               
+              }
+               // arrayConversion.push(morse.get("U"));
+               arrayConversion.push(morseALetra.get(letra));
+
+              
+              // arrayConversion.push(morseALetra.get(caracter));
+              alert(" hace push =" + arrayConversion + " Caracter = " + letra);
+              //  alert(" control");
+                
+                // arrayletra.push(morseALetra.get(arrayConversion));
+                // alert("letras son igual a = "+ arrayletra + "el valor de conversion en este punto es = " + arrayConversion);
+             } else{
+              // aqui hago inicia la conversion de letras a CLAVE MORSE
+              claveMorse=claveMorse.toUpperCase();
+              for(let i=0;i<claveMorse.length;i++){
+                // alert(morse.get("A"));
+                arrayConversion.push(morse.get(claveMorse[i]));
+                arrayConversion.push(" ");
+                // alert("debo convertirlo a clave morse")
+              }
+              // alert("el texto en morse es---->  " + arrayConversion.join(''));
             }
 
+            // convierto el arreglo  para poderlo mostrar correctamente 
 
-       }
+            const resultado=arrayConversion.reduce((acumulador,elemento)=>{
+                if(elemento===undefined){
+                    return acumulador + ' ';
+                 }else{
+                  return acumulador+elemento;
+                 }
+
+            },'');
+            
+
+            let variableCargaTexto=document.getElementById('intoDiv3');
+            
+            // variableCargaTexto.innerHTML=arrayConversion.join();
+            variableCargaTexto.innerHTML=resultado;
+
+              // alert("imprime el valor de contador=" + contador);
+       //}
+      }else{
+        alert("por favor  ingresar minimo 1 palabra ");
       }
+   }
+
+// #11 comprobar apertura y cierre de paréntesis 
+   /*
+ * Crea un programa que comprueba si los paréntesis, llaves y corchetes
+ * de una expresión están equilibrados.
+ * - Equilibrado significa que estos delimitadores se abren y cieran
+ *   en orden y de forma correcta.
+ * - Paréntesis, llaves y corchetes son igual de prioritarios.
+ *   No hay uno más importante que otro.
+ * - Expresión balanceada: { [ a * ( c + d ) ] - 5 }
+ * - Expresión no balanceada: { a * ( c + d ) ] - 5 }
+ */
+
+   function validaParentesis(){
+    // var claveMorse=document.getElementById('claveMorse').value;
+    var parentesis=document.getElementById('parentesis').value;
+    const apertura= new Set(["(","[","{"]);
+    const cierre=new Set([")","]","}"]);
+    contador=0;
+    if(parentesis!=""){
+      // - Expresión balanceada: { [ a * ( c + d ) ] - 5 }
+        for(let i=0;i<parentesis.length;i++){
+          if(apertura.has(parentesis[i])){
+              contador++;
+              // alert("Contador= " + contador);
+          }else if(cierre.has(parentesis[i])){
+            contador--;
+            // alert("Contador si no  encontro= " + contador);
+          }    
+
+        }
+        // alert("contador al salir del for " + contador)
+         if (contador!=0){
+        //   // variableCargaTexto.innerHTML=resultado;
+           alert("LA EXPRESION SE ENCUENTRA DESBALANCEADA EN " + contador)
+         }else{
+
+          alert("LA EXPRESION SE ENCUENTRA BALANCEADA " + contador)
+
+         }
+
+    }else{
+     alert("el campo  no debes vacio.");
+
+    }
+
+   }
 
 
+ // # 12 ELIMINANDO CARACTERES
+ //  recibiendo 2 cadenas  e imprimiendo 2 resultados  eliminando el texto repetido en la otra cadena 
+/* 
+ * Crea una función que reciba dos cadenas como parámetro (str1, str2)
+ * e imprima otras dos cadenas como salida (out1, out2).
+ * - out1 contendrá todos los caracteres presentes en la str1 pero NO
+ *   estén presentes en str2.
+ * - out2 contendrá todos los caracteres presentes en la str2 pero NO
+ *   estén presentes en str1.
+ */
+
+function delCharacter(){
+
+  var str1=document.getElementById("str1").value;
+  var str2=document.getElementById("str2").value;
+  var out1="";
+  var out2="";
+
+if (str1!="" && str2!=""){
+  alert("Textos = " + str1+ " con "+ str2 ); 
+  // hola  // la
+
+const eliminaCaracter=new RegExp(`[${str2}]`,'g');
+const eliminaCaracter2=new RegExp(`[${str1}]`,'g');
+out1=str1.replace(eliminaCaracter,'');
+out2=str2.replace(eliminaCaracter2,'');
+
+ 
+ alert("Salida out 1=" + out1 +" Salida out2= "+out2);
+
+}else
+  alert("uno o los dos campos se encuetra vacio , por favor llenar los dos campos " );
+}
+
+
+
+
+function palindromo(){
+
+
+
+  
+}

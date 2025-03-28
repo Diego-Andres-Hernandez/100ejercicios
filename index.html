@@ -5,49 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/ini.js"></script>
+
+    
     <title>100 ejercicios</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wdth,wght@94.3,727&display=swap" rel="stylesheet">
+
 </head>
 <body>
-
     <section class="fibonacci" id="fibonacci">
         <label >#3 LA SUCESIÓN DE FIBONACCI</label>        
-        <button id="boton1">Mostrar</button>
+        <button class="raise" id="boton1">Mostrar</button>
         <div id="viewFuntion"></div>
     </section> 
 
     <section id="aspertRatio">
         <label >#6 ASPECT RATIO DE UNA IMAGEN</label>        
-        <button id="boton2">Validar</button>
+        <button class="raise" id="boton2">Validar</button>
         <div></div>            
     </section>
 
     <section class="cadenaTexto">
         <label >#7 INVIRTIENDO CADENAS</label>
         <input  id="cadenaTexto" placeholder="Ingrese  texto a invertir">
-        <button id="boton3">Validar Numero</button>
+        <button class="raise" id="boton3">Validar Numero</button>
         <div id="intoDiv"></div>
     </section>     
     
     <section class="countWords">
         <label >#8 Contando Palabras</label>
         <input  id="countWords" placeholder="Ingrese  texto ">
-        <button id="boton4">Validar Palabras</button>
-        <div id="intoDiv2"></div>
+        <button class="raise" id="boton4">Validar Palabras</button>
+        <!-- <div id="intoDiv2"></div> -->
     </section>  
 
     <section class="numero">
         <label >#9 decimal a Binario</label>
         <input  id="numero" placeholder="Ingrese  Numero ">
-        <button id="boton5">Convertir a Binario</button>
+        <button class="raise" id="boton5">Convertir a Binario</button>
         <div id="intoDiv1"></div>
     </section> 
     
     <section class="claveMorse">
         <label >#10 convertir a Morse</label>
         <input  id="claveMorse" placeholder="Ingrese texto ">
-        <button id="boton6">Convertir a Clave Morse</button>
+        <button class="raise" id="boton6">Convertir a Clave Morse</button>
         <div id="intoDiv3" class="intoDiv3"></div>
     </section>
+
+    <section class="parentesis">
+        <label >#11 comprobar   apertura  y cierre de paréntesis </label>
+        <input  id="parentesis" placeholder="Ingrese  funcion a validar  ">
+        <button class="raise" id="boton7">validar parentesis de la funcion</button>
+        
+    </section>
+
+     <section class="eliminaCaracteres">
+        <label ># 12 ELIMINANDO CARACTERES </label>
+        <section class="botonDoble">
+            <input id="str1" placeholder="Ingrese  Caracteres">
+            <input id="str2" placeholder="Ingrese  Caracteres 2 ">
+        </section>
+        <div class="subDiv">     
+        </div>
+        <div class="subDiv">            
+        </div>
+        
+        <button class="raise" id="boton8">validar textos</button>
+    </section>
+
+    <section class="palindromo">
+        <label >#12  saber si una palabra es palindroma o no  </label>
+        <input  id="palindromo" placeholder="Ingrese  la palabra a validar  ">
+        <button class="raise" id="boton9">validar palabra</button>
+        
+    </section>
+    
     
 </body>
 </html>

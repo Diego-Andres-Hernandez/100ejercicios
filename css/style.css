@@ -4,28 +4,42 @@
   }
   
   body{
-    background-color: rgb(197, 246, 246);
+
+    color:#000;
+    background: linear-gradient(15deg,rgb(100, 100, 192),rgb(182, 183, 235));
+    animation: cambioColor 1s ease-in-out infinite;
+    /* background-color: rgb(197, 246, 246);
     height: 100%;
+    width: 100%; */
     width: 100%;
-    /* display:flex; */
-    /* flex-wrap: wrap; */
+    display:flex;
+    flex-wrap: wrap;
     /* flex-direction: row-reverse; */
      /*invierte el eje para que inicie de iz a  derecha */
   }
   section{
-  height: 50vh;
-  width: 100%;
-  /* text-align: center; */
+    font-family: "Tektur", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 727;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 94.3;
+    /* height: 70vh; */
+    height: 20em;
+    width: 50%;
+    /* text-align: center; */
    display:flex; 
    flex-wrap: wrap;
   
   /* overflow permite ocultar el contenido que sobrepasa el
    tamaño del conteneror , barra lateral */
   overflow: auto; 
-  display:flex; 
+  /* display:flex;  */
   flex-wrap: nowrap;
   flex-direction: column;
   align-items: center;
+  background: linear-gradient(15deg,rgb(0, 0, 0),rgb(182, 183, 235));
+    animation: cambioColor 1s ease-in-out infinite;
   }
   
   #anagram{
@@ -49,7 +63,7 @@
   
   input{
     width: 300px;
-    height: 50px;
+    height: 30px;
     margin: 5px;
     padding: 10px;
     font-size: 20px;
@@ -69,21 +83,32 @@
     text-align: center;  
   }
   div{
-    height: 90%;
-    width: 60%; 
+    height: 50%;
+    width: 80%; 
     margin: 10px;
   
-    background-color: rgb(223, 192, 192);
+    background-color: rgb(104, 96, 96);
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10%;
   }
-  button{
+  /* button{
   height: 100px;
   width: 100px;
   border-radius: 10%;
   
   
+  } */
+
+  button {
+    background: none;
+    border: 3px solid;
+    font: inherit;
+    /* font:initial; */
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
   }
   
   #poligono :first-child{
@@ -97,12 +122,12 @@
 
   #viewFuntion{
     font-style: italic;
-    font-size: 30px;
+    font-size: 90%;
     justify-content: center;
   }
   #intoDiv{
     font-style: italic;
-    font-size: 100px;
+    font-size: 30px;
   }
 
   #intoDiv1{
@@ -116,10 +141,58 @@
   
   #intoDiv3{
     font-style: italic;
-    font-size: 20px;
+    font-size: 60px;
     justify-content: center;
     margin: 20px 0;
   }
+ 
+  .eliminaCaracteres{
+  width: 50%;
+  } 
+  .botonDoble{
+   flex-direction: row;   
+   justify-content:center;
+   width: 100%;
+   }
   
   
 
+@keyframes cambioColor {
+0%{
+background-position: 0% 50%;
+}
+50%{
+  background-position: 100% 50%;
+}
+100%{
+  background-position: 0% 50%;
+}
+
+}
+
+/* programacion de efecto boton*/
+
+
+.raise:hover,
+.raise:focus{
+box-shadow: 0 1em 1em 0.2em var(--hover);
+-webkit-transform: translateY(-0.25em);
+  transform:translateY(-0.25em) ;
+}
+
+.raise {
+  /* --color: #ffa260;
+  --hover: #e5ff60; */
+  --color: #f6f7f5fa;
+  --hover: #3382d2;
+}
+
+button {
+  color: var(--color);
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
