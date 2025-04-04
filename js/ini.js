@@ -29,6 +29,11 @@ if(boton8){boton8.addEventListener("click", delCharacter);}
 const boton9=document.getElementById("boton9");
 if(boton9){boton9.addEventListener("click", palindromo);}
 
+const boton10=document.getElementById("boton10");
+if(boton10){boton10.addEventListener("click", factorial);}
+
+const boton12=document.getElementById("boton12");
+if(boton12){boton12.addEventListener("click", difFecha);}
 });
 
 /*     #3 LA SUCESIÓN DE FIBONACCI
@@ -457,7 +462,6 @@ function aspertRatio(){
  */
 
 function delCharacter(){
-
   var str1=document.getElementById("str1").value;
   var str2=document.getElementById("str2").value;
   var out1="";
@@ -480,11 +484,158 @@ out2=str2.replace(eliminaCaracter2,'');
 }
 
 
-
-
+// # 13 FUNCION PALINDROMO 
+/*
+ * Escribe una función que reciba un texto y retorne verdadero o
+ * falso (Boolean) según sean o no palíndromos.
+ * Un Palíndromo es una palabra o expresión que es igual si se lee
+  * de izquierda a derecha que de derecha a izquierda.
+ * NO se tienen en cuenta los espacios, signos de puntuación y tildes.
+ * Ejemplo: Ana lleva al oso la avellana.
+ */
 function palindromo(){
 
 
 
+var texto=document.getElementById("palindromo").value;
+var tempo=0;
+var digitos="";
+var mitad1="";
+var mitad2="";
+if(texto!=""){
+
+if (texto.length % 2 ===0){
+  for(let i=0;i<texto.length;i++){
+    // palabra   ALA 
+    digitos=Math.floor(texto.length/2);
+    // const textos=new RegExp(`[${texto}]`,'g');
+   mitad1=texto.substring(0,digitos);
+   mitad1=invertirCadena2(mitad1); 
+  mitad2=texto.substring(digitos,texto.length);
+   }
+  }else {
+    // palabra   ALA 
+    digitos=Math.floor(texto.length/2);
+    // const textos=new RegExp(`[${texto}]`,'g');
+   mitad1=texto.substring(0,digitos);
+  //  mitad1=invertirCadena2(mitad1); 
+  mitad2=texto.substring(digitos +1,texto.length);
+
+  }
+  alert("1 er mitad == "  + mitad1 +"   2da mitad  == " + mitad2 );
+  if (mitad1===mitad2){
+    alert("es un palindromo")
+  }else{
+alert("no es un palindromo")
+
+  }
+}else{
+
+alert("debe ingresar  un texto ")
+
+}
+
   
 }
+
+function invertirCadena2(text){
+
+  
+   if (text==""){
+     alert("No hay texto para invertir");
+     return;
+   }      
+   let invertirCadena="";
+   for(let i=text.length-1;i>=0;i--){
+    invertirCadena+=text[i];
+   }
+  
+  return invertirCadena;
+   // alert("la cadena invertida es =  "+ invertirCadena);
+  }
+
+
+  // # 14 retornar el factorial de un numero 
+/*
+ * Escribe una función que calcule y retorne el factorial de un número dado
+ * de forma recursiva.
+ */
+
+
+
+function factorial(){
+
+var numero=document.getElementById('factorial').value;
+
+if(numero!=""){
+  // alert("llego " + numero);
+  
+
+  const numerofactorial=numero=>{
+     if(numero==0){
+      return numero=1;
+     }else{
+      return numero*numerofactorial(numero-1);
+     }};
+
+  
+
+  alert("numero es = " + numero + " factorial = " + numerofactorial(numero));
+
+}else{
+alert("se debe introducir un numero");
+}
+}
+
+  // # 15 numero astrong o narsisistas , osea los que al elevarlos al cuadrado dan  el mismo numero 
+
+  // # 16 cuenta dias
+/*
+ * Crea una función que calcule y retorne cuántos días hay entre dos cadenas
+ * de texto que representen fechas.
+ * - Una cadena de texto que representa una fecha tiene el formato "dd/MM/yyyy".
+ * - La función recibirá dos String y retornará un Int.
+ * - La diferencia en días será absoluta (no importa el orden de las fechas).
+ * - Si una de las dos cadenas de texto no representa una fecha correcta se
+ *   lanzará una excepción.
+ */
+
+function difFecha(){
+ var fecha1=document.getElementById('fecha').value;
+ var fecha2=document.getElementById('fecha2').value;
+var dias="";
+var mes="";
+var diasdiferencia="";
+
+fecha1=new Date(fecha1);
+fecha2=new Date(fecha2);
+dias=fecha2.getDate() -fecha1.getDate() +1;
+mes=(fecha2.getMonth() +1)-(fecha1.getMonth()+1)  ;
+diasdiferencia=mes*30;
+
+dias=dias+diasdiferencia;
+
+
+
+ alert("Fecha 1= " + fecha1 + " --fecha 2 = "+ fecha2 + "-- los dias contados entre fechas son = " + dias );
+
+}
+
+
+ // # 18 la carrera de obstaculos
+/*
+ * Crea una función que evalúe si un/a atleta ha superado correctamente una
+ * carrera de obstáculos.
+ * - La función recibirá dos parámetros:
+ *      - Un array que sólo puede contener String con las palabras
+ *        "run" o "jump"
+ *      - Un String que represente la pista y sólo puede contener "_" (suelo)
+ *        o "|" (valla)
+ * - La función imprimirá cómo ha finalizado la carrera:
+ *      - Si el/a atleta hace "run" en "_" (suelo) y "jump" en "|" (valla)
+ *        será correcto y no variará el símbolo de esa parte de la pista.
+ *      - Si hace "jump" en "_" (suelo), se variará la pista por "x".
+ *      - Si hace "run" en "|" (valla), se variará la pista por "/".
+ * - La función retornará un Boolean que indique si ha superado la carrera.
+ * Para ello tiene que realizar la opción correcta en cada tramo de la pista.
+ */
